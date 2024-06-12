@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запись добровольцем</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        {% if message %}
+            <div class="alert {% if message.startswith('Резюме успешно отправлено') %}alert-success{% else %}alert-danger{% endif %}" role="alert" style="margin-top: 20px;">                {{ message }}
+            </div>
+        {% endif %}
+        <form action="{{ url_for('astronaut_selection') }}" method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.last_name.label }} {{ form.last_name(class="form-control") }}
+                {% for error in form.last_name.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.first_name.label }} {{ form.first_name(class="form-control") }}
+                {% for error in form.first_name.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label }} {{ form.email(class="form-control") }}
+                {% for error in form.email.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.education.label }} {{ form.education(class="form-control") }}
+                {% for error in form.education.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.profession.label }} {{ form.profession(class="form-control") }}
+                {% for error in form.profession.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.gender.label }} <br>
+                {{ form.gender(class="form-check-inline") }}
+                {% for error in form.gender.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.motivation.label }} {{ form.motivation(class="form-control") }}
+                {% for error in form.motivation.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.stay_on_mars.label }} <br>
+                {{ form.stay_on_mars(class="form-check-inline") }}
+                {% for error in form.stay_on_mars.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.photo.label }} {{ form.photo(class="form-control-file") }}
+                {% for error in form.photo.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+    </div>
+</body>
+</html>

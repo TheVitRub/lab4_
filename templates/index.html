@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>Выберите одну из гиперссылок</h1>
+    <ul>
+        <li><a href="{{ url_for('list_prof', list='ol') }}">Список профессий (отсортированный)</a></li>
+        <li><a href="{{ url_for('list_prof', list='ul') }}">Список профессий (не отсортированный)</a></li>
+        <li><a href="{{ url_for('distribution') }}">Распределение</a></li>
+        <li><a href="{{ url_for('random_member') }}">Случайный участник</a></li>
+        <li><a href="{{ url_for('astronaut_selection') }}">Запись добровольцем на Марс</a></li>
+        <li><a href="{{ url_for('gallery') }}">Галерея</a></li>
+    </ul>
+</body>
+</html>

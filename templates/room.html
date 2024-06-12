@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Decoration</title>
+</head>
+<body>
+    <h1>Room Decoration</h1>
+    <table border="1">
+        <tr>
+            <th>Wall Color</th>
+            <th>Emblem</th>
+        </tr>
+        <tr>
+            <td>{{ color }}</td>
+            <td><img src="{{ url_for('static', filename='emblems/' + emblem) }}" alt="Emblem"></td>
+        </tr>
+    </table>
+</body>
+</html>
